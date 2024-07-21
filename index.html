@@ -22,7 +22,6 @@
         position: absolute;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
       }
 
       .canvas-app-container:-webkit-full-screen {
@@ -39,7 +38,7 @@
 
       #canvas-container {
         position: relative;
-	margin: 12px;
+	margin: 8px;
       }
 
       canvas:active,
@@ -1116,7 +1115,7 @@
     </script>
   </head>
   <body>
-    <div id="app-container" class="canvas-app-container" style="background: transparent;">
+    <div id="app-container" class="canvas-app-container" style="background: transparent; height: auto;">
       <div id="running-from-file-warning" merge="keep"></div>
       <div id="webgl-not-supported" style="display: none; margin: 3em;">
         <h1>WebGL not supported ⚠️</h1>
@@ -1126,6 +1125,9 @@
           to learn more.
         </p>
       </div>
+        <div style="text-align: center; margin-bottom: 50px; margin-top: -55px;">
+            <a href="https://t.me/myHamsterKeyGameChannel" style="font-size: 15px; text-decoration: underline; color: #63b4ea;" ">Подпишись / Subscribe</a>
+        </div>
       <div id="canvas-container" class="canvas-app-canvas-container">
         <canvas
           id="canvas"
