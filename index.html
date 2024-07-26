@@ -1177,42 +1177,20 @@
             document.getElementById('timer').textContent = '00:00';
         }
 
-        var frozen = false;
         var cipherE = null;
 
-        function handleTouchStart(event) {
-          if (frozen) {
-            frozen = false;
-            parent.postMessage(
-            JSON.stringify({
-            method: "OnGameFinished",
-            cipher: cipherE
-          })
-        );
-        //onSandboxMessage(null);
-          }
-          // Add any additional logic you want to execute on touch start
-        }
-
-        // Attach the event listener to the document
-        document.addEventListener('touchstart', handleTouchStart, false);
-
         function updateTimer() {
-          if (!frozen) {
             seconds++;
             if (seconds === 60) {
                 seconds = 0;
                 minutes++;
             }
             document.getElementById('timer').textContent = `${minutes < 10 ? '0' + minutes : minutes}:${seconds < 10 ? '0' + seconds : seconds}`;
-          }
         }
 
       function onSandboxMessage(e) {
-        if (!frozen) {
-          resetTimer();
-          startTimer();
-        }
+        resetTimer();
+        startTimer();
         
         const a = {
           method: "StartGame",
@@ -1223,14 +1201,13 @@
         a && "StartGame" === a.method && JsToDef.send("__StartGame", a);
       }
       function OnGameFinished(e) {
-        frozen = true;
         cipherE = e;
-        //parent.postMessage(
-          //JSON.stringify({
-            //method: "OnGameFinished",
-            //cipher: e
-          //})
-        //);
+        parent.postMessage(
+          JSON.stringify({
+            method: "OnGameFinished",
+            cipher: e
+          })
+        );
       }
       function OnSceneLoaded() {
         parent.postMessage(
