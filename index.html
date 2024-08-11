@@ -11,7 +11,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>Hamster Key Game</title>
+    <title>Hamster Key Game 11.09</title>
     <style type="text/css">
       body {
         position: fixed;
@@ -1214,26 +1214,26 @@
         }
 
      let levelConfig =
-        "- - - - - -. - - - - - -. - - - - - -. - - - - - -. - - - - - -. - - - - - -";
+        "a - - d d -.a c c - e f.b - 0 0 e f.b g g - e -.- - h z z s.x x h - - s";
       let startE = null;
 
-      async function loadLevelConfig() {
-        try {
-          const response = await fetch("https://yopoho.github.io/HamsterSimulatorSport/level-config.txt");
-          const text = await response.text();
-          console.log("level-config.txt ", text);
-          return text;
-        } catch (error) {
-          console.error("Error loading config:", error);
-          return "- - - - - -. - - - - - -. - - - - - -. - - - - - -. - - - - - -. - - - - - -";
-        }
-      }
+      //async function loadLevelConfig() {
+       // try {
+         // const response = await fetch("https://yopoho.github.io/HamsterSimulatorSport/level-config.txt");
+          //const text = await response.text();
+          //console.log("level-config.txt ", text);
+          //return text;
+        //} catch (error) {
+         // console.error("Error loading config:", error);
+          //return "- - - - - -. - - - - - -. - - - - - -. - - - - - -. - - - - - -. - - - - - -";
+       // }
+      //}
 
-      (async () => {
-        levelConfig = await loadLevelConfig();
-        this.levelConfig = levelConfig;
-        onSandboxMessage(startE);
-      })();
+      //(async () => {
+        //levelConfig = await loadLevelConfig();
+        //this.levelConfig = levelConfig;
+        //onSandboxMessage(startE);
+      //})();
 
       function onSandboxMessage(e) {
 	this.startE = e;
